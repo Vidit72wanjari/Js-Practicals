@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade Calculator</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 400px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .subject {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    input {
+      padding: 10px;
+      width: 100%;
+      border: 2px solid #2575fc;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      transition: 0.3s;
+    }
+    input:focus {
+      border-color: #6a11cb;
+      box-shadow: 0px 0px 8px rgba(106,17,203,0.4);
+    }
+    button {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+      margin-top: 10px;
+    }
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .grade {
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+      display: inline-block;
+      color: white;
+    }
+    .C { background: #ff9800; }
+    .B { background: #03a9f4; }
+    .A { background: #4caf50; }
+    .Aplus { background: #9c27b0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎓 Student Grade Calculator</h1>
+
+    <div class="subject">
+      <label>Computer Networks:</label>
+      <input type="number" id="cn" placeholder="Enter marks (0 - 100)">
+    </div>
+    <div class="subject">
+      <label>Compiler Construction:</label>
+      <input type="number" id="cc" placeholder="Enter marks (0 - 100)">
+    </div>
+    <div class="subject">
+      <label>Data Compression:</label>
+      <input type="number" id="dc" placeholder="Enter marks (0 - 100)">
+    </div>
+    <div class="subject">
+      <label>Flexi Credit JavaScript:</label>
+      <input type="number" id="js" placeholder="Enter marks (0 - 100)">
+    </div>
+    <div class="subject">
+      <label>SEC Technical:</label>
+      <input type="number" id="sec" placeholder="Enter marks (0 - 100)">
+    </div>
+
+    <button onclick="calculateGrade()">Calculate Grade</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateGrade() {
+      let cn = parseInt(document.getElementById("cn").value) || 0;
+      let cc = parseInt(document.getElementById("cc").value) || 0;
+      let dc = parseInt(document.getElementById("dc").value) || 0;
+      let js = parseInt(document.getElementById("js").value) || 0;
+      let sec = parseInt(document.getElementById("sec").value) || 0;
+
+      let total = cn + cc + dc + js + sec;
+      let percentage = (total / 500) * 100;
+
+      let grade = "";
+      if (percentage >= 50 && percentage <= 65) {
+        grade = '<span class="grade C">Grade: C</span>';
+      } else if (percentage >= 66 && percentage <= 80) {
+        grade = '<span class="grade B">Grade: B</span>';
+      } else if (percentage > 80 && percentage <= 90) {
+        grade = '<span class="grade A">Grade: A</span>';
+      } else if (percentage > 90) {
+        grade = '<span class="grade Aplus">Grade: A+</span>';
+      } else {
+        grade = "<span style='color:red;'>Below 50% ❌ (Fail)</span>";
+      }
+
+      document.getElementById("result").innerHTML = 
+        `Total Marks: ${total}/500 <br> Percentage: ${percentage.toFixed(2)}% <br> ${grade}`;
+    }
+  </script>
+</body>
+</html>

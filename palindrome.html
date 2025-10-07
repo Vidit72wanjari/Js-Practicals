@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palindrome Checker</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 350px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    input {
+      padding: 10px;
+      width: 100%;
+      border: 2px solid #ff758c;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      outline: none;
+      transition: 0.3s;
+    }
+    input:focus {
+      border-color: #ff416c;
+      box-shadow: 0px 0px 8px rgba(255,65,108,0.4);
+    }
+    button {
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+    }
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .yes {
+      color: green;
+    }
+    .no {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔢 Palindrome Checker</h1>
+    <input type="number" id="num" placeholder="Enter a number">
+    <button onclick="checkPalindrome()">Check</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    // Function to reverse a number
+    function reverseNumber(n) {
+      let reversed = 0;
+      let temp = n;
+      while (temp > 0) {
+        let digit = temp % 10;
+        reversed = reversed * 10 + digit;
+        temp = Math.floor(temp / 10);
+      }
+      return reversed;
+    }
+
+    // Function to check palindrome
+    function checkPalindrome() {
+      let num = parseInt(document.getElementById("num").value);
+      let reversed = reverseNumber(num);
+      let resultDiv = document.getElementById("result");
+
+      if (num === reversed) {
+        resultDiv.innerHTML = `<span class="yes">✅ ${num} is a Palindrome!</span>`;
+      } else {
+        resultDiv.innerHTML = `<span class="no">❌ ${num} is NOT a Palindrome (Reversed: ${reversed})</span>`;
+      }
+    }
+  </script>
+</body>
+</html>
