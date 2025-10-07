@@ -1,0 +1,178 @@
+/* header,footer{
+    width:100%;
+    height:10;
+    background-color: yellow;
+}
+.first{
+    width:100%;
+    height:10;
+    background-color:green;
+} */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #fffdfb;
+  color: #333;
+}
+
+/* 🔴 Slideshow Section */
+.slideshow-container {
+  position: relative;
+  max-height: 400px;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: 400px;
+}
+
+.slide img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.college-title {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  color: white;
+  /* background: rgba(255, 0, 0, 0.7); */
+  padding: 10px 25px;
+  border-radius: 10px;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* 🏆 Achievements Section */
+.achievements {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #fff0f0;
+}
+
+.achievements h2 {
+  color: #b30000;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.achievement-gallery {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.achievement-gallery img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 👩‍🎓 Student Section */
+.students {
+  padding: 50px 20px;
+  background-color: #ffe5e5;
+}
+
+.students h3 {
+  text-align: center;
+  font-size: 28px;
+  color: #d10000;
+  margin-bottom: 40px;
+}
+
+.student-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.student-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.student-card:hover {
+  transform: scale(1.05);
+}
+
+.student-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid #d10000;
+}
+
+.student-card h4 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #b30000;
+}
+
+.student-card p {
+  font-size: 14px;
+  color: #444;
+}
+
+/* 🔻 Footer */
+footer {
+  background-color: #b30000;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+} */
+.top-bar {
+  background: #b30000;
+  text-align: right;
+  padding: 10px 20px;
+}
+
+.register-btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: linear-gradient(135deg, #2c3e50, #4ca1af); /* gradient */
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50px;   /* pill shape */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.5px;
+}
+
+.register-btn:hover {
+  background: linear-gradient(135deg, #1e2a36, #357f89);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.register-btn:active {
+  transform: scale(0.98); /* small press effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+

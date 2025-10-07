@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 30px;
+}
+
+.container {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 800px;
+}
+
+h2 {
+  text-align: center;
+  color: #5a189a;
+  margin-bottom: 25px;
+}
+
+fieldset {
+  border: 2px solid #eee;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  padding: 20px;
+}
+
+legend {
+  font-weight: bold;
+  color: #6a0dad;
+  font-size: 16px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #9b5de5;
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #6a00f4;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+.modal-content h3 {
+  color: #38b000;
+  margin-bottom: 10px;
+}
+
+.modal-content button {
+  background: #38b000;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 8px;
+  margin-top: 15px;
+  cursor: pointer;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Registration Form</title>
+  <link rel="stylesheet" href="registration.css" />
+</head>
+<body>
+  <div class="container">
+    <form id="registrationForm">
+      <h2>🎓 Student Registration Form</h2>
+
+      
+      <fieldset>
+        <legend>👤 Personal Details</legend>
+
+        <label for="name">Full Name*</label>
+        <input type="text" id="name" required placeholder="Enter your Name " />
+
+        <label for="email">Email*</label>
+        <input type="email" id="email" required placeholder="e.g. student@example.com" />
+
+        <label for="phone">Phone Number*</label>
+        <input type="tel" id="phone" maxlength="10" required placeholder="10-digit number" />
+
+        <label for="dob">Date of Birth*</label>
+        <input type="date" id="dob" required />
+
+        <label>Gender*</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" value="Male" required /> Male</label>
+          <label><input type="radio" name="gender" value="Female" /> Female</label>
+          <label><input type="radio" name="gender" value="Other" /> Other</label>
+        </div>
+      </fieldset>
+
+      
+      <fieldset>
+        <legend>🎓 Educational Info</legend>
+
+        <label for="college">College Name*</label>
+        <input type="text" id="college" required placeholder="e.g. Symbiosis Institute of Technology" />
+
+        <label for="branch">Branch*</label>
+        <input type="text" id="branch" required placeholder="e.g. Computer Science" />
+
+        <label for="year">Year*</label>
+        <select id="year" required>
+          <option value="">--Select Year--</option>
+          <option value="First">First</option>
+          <option value="Second">Second</option>
+          <option value="Third">Third</option>
+          <option value="Final">Final</option>
+        </select>
+
+        <label>Skills*</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" value="C/C++" /> C/C++</label>
+          <label><input type="checkbox" value="Java" /> Java</label>
+          <label><input type="checkbox" value="HTML & CSS" /> HTML & CSS</label>
+          <label><input type="checkbox" value="PHP" /> PHP</label>
+          <label><input type="checkbox" value="PostgreSQL" /> PostgreSQL</label>
+          <label><input type="checkbox" value="Python" /> Python</label>
+          <label><input type="checkbox" value="JavaScript" /> JavaScript</label>
+        </div>
+
+        <label for="certification">Certifications</label>
+        <textarea id="certification" placeholder="Mention any certifications you hold..."></textarea>
+
+        <label for="goals">Future Goals</label>
+        <textarea id="goals" placeholder="Describe your career goals..."></textarea>
+      </fieldset>
+
+      
+      <fieldset>
+        <legend>🔐 Account Setup</legend>
+
+        <label for="address">Address*</label>
+        <textarea id="address" rows="3" required></textarea>
+
+        <label for="photo">Upload Photo</label>
+        <input type="file" id="photo" accept="image/*" />
+
+        <label for="password">Password*</label>
+        <input type="password" id="password" required placeholder="Min. 6 characters" minlength="6" />
+      </fieldset>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  
+  <div class="modal" id="successModal">
+    <div class="modal-content">
+      <h3>✅ Registered Successfully!</h3>
+      <p>Your form has been submitted. Thank you!</p>
+      <button onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <script src="Registration.js"></script>
+</body>
+</html>

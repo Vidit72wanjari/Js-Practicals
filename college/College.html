@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Symbiosis Institute of Technology Nagpur</title>
+  <link rel="stylesheet" href="style.css" />
+  <a href="Registration.html" class="register-btn">Register</a>
+</head>
+<body>
+
+  <header class="slideshow-container">
+    <div class="slide fade">
+      <img src="Screenshot 2025-07-17 230547.png" alt="College View 1">
+    </div>
+    <div class="slide fade">
+      <img src="Screenshot 2025-07-17 230620.png" alt="College View 2">
+    </div>
+    <div class="slide fade">
+      <img src="Screenshot 2025-07-17 230804.png" alt="College View 3">
+    </div>
+
+    <h1 class="college-title">Symbiosis institute of Technology Nagpur</h1>
+  </header>
+
+  <section class="achievements">
+    <h2>Achievements🏆</h2>
+    <div class="achievement-gallery">
+      <img src="Screenshot 2025-07-17 231149.png" alt="Award 1">
+      <img src="Screenshot 2025-07-17 231025.png" alt="Award 2">
+      <img src="Screenshot 2025-07-17 232522.png" alt="Award 3">
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Symbiosis Nagpur  
+  </footer>
+
+  <script>
+    // Keep only slideshow code
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      const slides = document.querySelectorAll(".slide");
+      slides.forEach(s => s.style.display = "none");
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); 
+    }
+  </script>
+</body>
+</html>
