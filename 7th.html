@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Form Assistant - Event Handling (Calm Theme)</title>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #c9d6ff, #e2e2e2);
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .ai-form {
+        background: #ffffffcc;
+        padding: 35px;
+        border-radius: 20px;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        width: 400px;
+        backdrop-filter: blur(8px);
+        transition: 0.3s;
+    }
+    .ai-form:hover {
+        box-shadow: 0 8px 35px rgba(100, 150, 200, 0.3);
+    }
+    h2 {
+        text-align: center;
+        color: #3a506b;
+        margin-bottom: 25px;
+    }
+    label {
+        font-weight: 600;
+        display: block;
+        margin: 10px 0 5px;
+        color: #333;
+    }
+    input, textarea, select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #a0aec0;
+        background: #f9f9f9;
+        color: #333;
+        font-size: 15px;
+        transition: 0.3s;
+    }
+    input:focus, textarea:focus, select:focus {
+        outline: none;
+        border-color: #5dade2;
+        box-shadow: 0 0 8px rgba(93, 173, 226, 0.6);
+        background: #f1f9ff;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+        background: #5dade2;
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        font-weight: 600;
+        margin-top: 15px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    button:hover {
+        background: #3498db;
+        box-shadow: 0 0 15px rgba(93, 173, 226, 0.5);
+    }
+    #aiOutput {
+        background: #eef6fb;
+        border-radius: 10px;
+        padding: 10px;
+        margin-top: 15px;
+        min-height: 50px;
+        color: #2e4053;
+        font-size: 15px;
+        font-style: italic;
+        border: 1px solid #d6eaf8;
+    }
+</style>
+</head>
+<body>
+
+<div class="ai-form">
+    <h2>AI Form Assistant</h2>
+    <form id="smartForm">
+        <label>Full Name:</label>
+        <input type="text" id="name" placeholder="Enter your full name">
+
+        <label>Email:</label>
+        <input type="email" id="email" placeholder="example@email.com">
+
+        <label>Gender:</label>
+        <select id="gender">
+            <option value="">Select gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <label>Message:</label>
+        <textarea id="message" placeholder="Write your message..."></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="aiOutput">🌿 Welcome! I’ll gently guide you through the form.</div>
+</div>
+
+<script>
+const form = document.getElementById('smartForm');
+const output = document.getElementById('aiOutput');
+const nameField = document.getElementById('name');
+const emailField = document.getElementById('email');
+const genderField = document.getElementById('gender');
+const messageField = document.getElementById('message');
+
+// focus + input events
+nameField.addEventListener('focus', () => {
+    output.textContent = "🪷 Please enter your full name.";
+});
+nameField.addEventListener('input', () => {
+    output.textContent = `😊 Nice to meet you, ${nameField.value}!`;
+});
+
+emailField.addEventListener('focus', () => {
+    output.textContent = "📧 Enter a valid email like name@gmail.com.";
+});
+emailField.addEventListener('input', () => {
+    if (/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(emailField.value)) {
+        output.textContent = "✅ That’s a valid email!";
+    } else {
+        output.textContent = "⚠️ This doesn’t look like a proper email yet.";
+    }
+});
+
+genderField.addEventListener('change', () => {
+    if (genderField.value !== "") {
+        output.textContent = `🌼 You selected ${genderField.value}.`;
+    }
+});
+
+messageField.addEventListener('focus', () => {
+    output.textContent = "🕊️ Write your thoughts calmly.";
+});
+
+// submit event
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = nameField.value.trim();
+    const email = emailField.value.trim();
+    const gender = genderField.value;
+    const msg = messageField.value.trim();
+
+    if (!name || !email || !gender || !msg) {
+        output.textContent = "⚠️ Please fill all fields before submitting.";
+        return;
+    }
+
+    if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email)) {
+        output.textContent = "❌ Please enter a valid email address.";
+        return;
+    }
+
+    output.innerHTML = `🌸 Thank you, <b>${name}</b>! Your message has been submitted successfully.<br>
+                        Gender: <b>${gender}</b> | Email: <b>${email}</b>`;
+    form.reset();
+});
+</script>
+
+</body>
+</html>

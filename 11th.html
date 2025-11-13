@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real-Time Class Scheduler & Countdown Timer</title>
+<style>
+:root {
+    --primary: #27ae60;
+    --secondary: #2ecc71;
+    --accent: #3498db;
+    --bg: linear-gradient(135deg, #74ebd5, #acb6e5);
+    --white: #fff;
+    --dark: #2c3e50;
+}
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 25px 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+header h1 {
+    font-size: 2rem;
+}
+.clock {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin-top: 40px;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--dark);
+}
+#timerDisplay {
+    font-size: 2.3rem;
+    font-weight: bold;
+    color: var(--primary);
+    text-align: center;
+    margin: 15px 0;
+}
+input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 180px;
+    text-align: center;
+    font-size: 15px;
+}
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 8px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+button:hover {
+    background: var(--secondary);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 20px;
+}
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background: var(--accent);
+    color: white;
+}
+tr.active {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+}
+tr.upcoming {
+    background: #fff8dc;
+}
+tr:hover {
+    background: rgba(46, 204, 113, 0.15);
+}
+.footer-note {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 25px;
+    opacity: 0.8;
+}
+@media(max-width:768px) {
+    table, th, td { font-size: 14px; }
+    input { width: 150px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🕒 Real-Time Class Scheduler & Timer</h1>
+    <div class="clock" id="liveClock">--:--:--</div>
+</header>
+
+<div class="container">
+    <!-- Countdown Timer -->
+    <section>
+        <h2>⏳ Countdown Timer</h2>
+        <div id="timerDisplay">00:00</div>
+        <div style="text-align:center;">
+            <input type="number" id="minutesInput" placeholder="Enter minutes">
+            <button onclick="startTimer()">Start</button>
+            <button onclick="resetTimer()">Reset</button>
+        </div>
+    </section>
+
+    <hr style="margin:30px 0; border:none; border-top:2px solid #eee;">
+
+    <!-- Class Scheduler -->
+    <section>
+        <h2>📚 Today's Schedule</h2>
+        <p style="text-align:center;">Current class will be highlighted in real time.</p>
+        <table id="scheduleTable">
+            <thead>
+                <tr>
+                    <th>Time Slot</th>
+                    <th>Subject</th>
+                    <th>Faculty</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-start="09:00" data-end="09:50">
+                    <td>09:00 AM - 09:50 AM</td>
+                    <td>Mathematics</td>
+                    <td>Prof. Sharma</td>
+                </tr>
+                <tr data-start="10:00" data-end="10:50">
+                    <td>10:00 AM - 10:50 AM</td>
+                    <td>Computer Networks</td>
+                    <td>Prof. Deshmukh</td>
+                </tr>
+                <tr data-start="11:00" data-end="11:50">
+                    <td>11:00 AM - 11:50 AM</td>
+                    <td>Operating Systems</td>
+                    <td>Prof. Patil</td>
+                </tr>
+                <tr data-start="12:00" data-end="12:50">
+                    <td>12:00 PM - 12:50 PM</td>
+                    <td>Database Systems</td>
+                    <td>Prof. Mehta</td>
+                </tr>
+                <tr data-start="13:00" data-end="13:50">
+                    <td>01:00 PM - 01:50 PM</td>
+                    <td>Human-Computer Interaction</td>
+                    <td>Prof. Rao</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <p class="footer-note">Made with ❤️ using setInterval() & setTimeout()</p>
+</div>
+
+<script>
+// ---------- LIVE DIGITAL CLOCK ----------
+function updateClock() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString();
+    document.getElementById("liveClock").textContent = timeString;
+}
+setInterval(updateClock, 1000);
+updateClock(); // initial call
+
+// ---------- COUNTDOWN TIMER ----------
+let timerInterval;
+function startTimer() {
+    const minutes = parseInt(document.getElementById("minutesInput").value);
+    const display = document.getElementById("timerDisplay");
+    if (isNaN(minutes) || minutes <= 0) {
+        alert("⚠️ Enter a valid number of minutes.");
+        return;
+    }
+    let timeLeft = minutes * 60;
+    clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        const min = Math.floor(timeLeft / 60);
+        const sec = timeLeft % 60;
+        display.textContent = `${String(min).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            display.textContent = "⏰ Time’s Up!";
+            alert("✅ Countdown Complete!");
+        }
+        timeLeft--;
+    }, 1000);
+}
+function resetTimer() {
+    clearInterval(timerInterval);
+    document.getElementById("timerDisplay").textContent = "00:00";
+    document.getElementById("minutesInput").value = "";
+}
+
+// ---------- CLASS SCHEDULER ----------
+function checkSchedule() {
+    const rows = document.querySelectorAll("#scheduleTable tbody tr");
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2,'0');
+    const minutes = now.getMinutes().toString().padStart(2,'0');
+    const currentTime = `${hours}:${minutes}`;
+
+    rows.forEach(row => {
+        const start = row.getAttribute("data-start");
+        const end = row.getAttribute("data-end");
+        row.classList.remove("active","upcoming");
+        if (currentTime >= start && currentTime < end) {
+            row.classList.add("active");
+        } else if (currentTime < start) {
+            row.classList.add("upcoming");
+        }
+    });
+
+    // alert before class starts
+    rows.forEach(row => {
+        const start = row.getAttribute("data-start");
+        const subject = row.cells[1].textContent;
+        const [h,m] = start.split(":").map(Number);
+        const startTime = new Date();
+        startTime.setHours(h,m,0,0);
+        const diff = startTime - now;
+        if (diff > 0 && diff < 60000) { // within 1 min
+            setTimeout(() => {
+                alert(`📢 Class "${subject}" is starting now!`);
+            }, diff);
+        }
+    });
+}
+// update scheduler every minute
+setInterval(checkSchedule, 60000);
+checkSchedule();
+</script>
+
+</body>
+</html>

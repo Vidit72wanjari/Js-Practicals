@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>String Operations using JavaScript</title>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #6EE7B7, #3B82F6);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+    }
+    h1 {
+        color: #111;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .container {
+        background: white;
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+        width: 90%;
+        max-width: 700px;
+    }
+    textarea, input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        margin: 10px 0;
+    }
+    button {
+        background: #2563EB;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin: 5px;
+        font-size: 15px;
+        transition: 0.2s;
+    }
+    button:hover {
+        background: #1E40AF;
+    }
+    .output {
+        background: #F9FAFB;
+        border-radius: 10px;
+        padding: 12px;
+        min-height: 50px;
+        margin-top: 10px;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+    <h1>String Operations in JavaScript</h1>
+    <div class="container">
+        <label>Enter your string:</label>
+        <input type="text" id="userString" placeholder="Type your string here...">
+
+        <div>
+            <button onclick="showSubstring()">Substring</button>
+            <button onclick="findIndex()">Index Of</button>
+            <button onclick="splitString()">Split</button>
+            <button onclick="replaceString()">Replace</button>
+        </div>
+
+        <div class="output" id="output">Result will appear here...</div>
+
+        <hr>
+
+        <h3>Case Study 1: Reverse a String</h3>
+        <button onclick="reverseString()">Reverse String</button>
+
+        <h3>Case Study 2: Count Vowels in Paragraph</h3>
+        <textarea id="paragraph" placeholder="Enter a paragraph..."></textarea>
+        <button onclick="countVowels()">Count Vowels</button>
+
+        <div class="output" id="vowelOutput"></div>
+    </div>
+
+<script>
+    function showSubstring() {
+        let str = document.getElementById("userString").value;
+        if (str === "") return alert("Please enter a string first!");
+        let sub = str.substring(2, 8);
+        document.getElementById("output").innerText = "Substring (2,8): " + sub;
+    }
+
+    function findIndex() {
+        let str = document.getElementById("userString").value;
+        if (str === "") return alert("Please enter a string first!");
+        let search = prompt("Enter the word or letter to find its position:");
+        if (!search) return;
+        let index = str.indexOf(search);
+        if (index !== -1) {
+            document.getElementById("output").innerHTML = 
+                `The term "<b>${search}</b>" was found at <b>index ${index}</b>.<br>
+                (Remember: Index starts from 0 in JavaScript)`;
+        } else {
+            document.getElementById("output").innerHTML = 
+                `The term "<b>${search}</b>" was <b>not found</b> in the string.`;
+        }
+    }
+
+    function splitString() {
+        let str = document.getElementById("userString").value;
+        if (str === "") return alert("Please enter a string first!");
+        let parts = str.split(" ");
+        document.getElementById("output").innerText = "Words: " + parts.join(", ");
+    }
+
+    function replaceString() {
+        let str = document.getElementById("userString").value;
+        if (str === "") return alert("Please enter a string first!");
+        let replaced = str.replace(/a/g, "@");
+        document.getElementById("output").innerText = "Replaced: " + replaced;
+    }
+
+    function reverseString() {
+        let str = document.getElementById("userString").value;
+        if (str === "") return alert("Please enter a string first!");
+        let reversed = str.split("").reverse().join("");
+        document.getElementById("output").innerText = "Reversed String: " + reversed;
+    }
+
+    function countVowels() {
+        let text = document.getElementById("paragraph").value.toLowerCase();
+        if (text === "") return alert("Please enter a paragraph first!");
+        let count = 0;
+        let vowels = "aeiou";
+        for (let char of text) {
+            if (vowels.includes(char)) count++;
+        }
+        document.getElementById("vowelOutput").innerText = "Total vowels: " + count;
+    }
+</script>
+</body>
+</html>

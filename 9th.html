@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Theme Switcher</title>
+<style>
+/* ---------------- Base Styles ---------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background 0.4s, color 0.4s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* ---------------- Theme Variables ---------------- */
+:root {
+  --bg: #f6f8fa;
+  --text: #222;
+  --accent: #4a90e2;
+  --card: #fff;
+}
+
+/* Dark Theme */
+body.dark {
+  --bg: #1a1a2e;
+  --text: #e5e5e5;
+  --accent: #ffb347;
+  --card: #24243e;
+}
+
+/* Ocean Theme */
+body.ocean {
+  --bg: #cceeff;
+  --text: #00334d;
+  --accent: #0077b6;
+  --card: #e6f7ff;
+}
+
+/* Sunset Theme */
+body.sunset {
+  --bg: #fff2e1;
+  --text: #4a2c2a;
+  --accent: #f76b1c;
+  --card: #ffe8d6;
+}
+
+/* ---------------- Container ---------------- */
+.container {
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+  padding: 40px;
+  width: 400px;
+  text-align: center;
+  transition: background 0.3s ease-in-out;
+}
+h1 {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+p {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+/* ---------------- Buttons ---------------- */
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  margin: 8px;
+  transition: 0.3s;
+}
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+/* ---------------- Info Box ---------------- */
+.info {
+  margin-top: 25px;
+  font-size: 14px;
+  color: var(--text);
+}
+.reset-btn {
+  background: #e74c3c;
+}
+
+/* Smooth fade effect */
+.fade {
+  animation: fade 0.8s ease-in-out;
+}
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+</style>
+</head>
+<body>
+
+<div class="container fade">
+  <h1>🎨 Theme Switcher Pro</h1>
+  <p>Switch themes and save your preferences using Web Storage.</p>
+
+  <label for="theme">Choose Theme:</label>
+  <select id="theme">
+    <option value="light">🌞 Light</option>
+    <option value="dark">🌙 Dark</option>
+    <option value="ocean">🌊 Ocean Blue</option>
+    <option value="sunset">🌅 Sunset Orange</option>
+  </select>
+
+  <div>
+    <button id="applyBtn">Apply Theme</button>
+    <button id="saveBtn">💾 Save Preferences</button>
+    <button id="resetBtn" class="reset-btn">♻️ Reset</button>
+  </div>
+
+  <div class="info" id="info"></div>
+</div>
+
+<script>
+const body = document.body;
+const themeSelect = document.getElementById("theme");
+const info = document.getElementById("info");
+
+// ---------- Load Saved Preferences ----------
+window.onload = () => {
+  const savedTheme = localStorage.getItem("theme");
+  const sessionVisits = sessionStorage.getItem("visits");
+
+  // Restore theme from localStorage
+  if (savedTheme) {
+    applyTheme(savedTheme);
+    themeSelect.value = savedTheme;
+  }
+
+  // Count page visits for current session
+  let visitCount = sessionVisits ? parseInt(sessionVisits) + 1 : 1;
+  sessionStorage.setItem("visits", visitCount);
+
+  info.innerHTML = `👋 You’ve visited this page <b>${visitCount}</b> time(s) in this session.`;
+};
+
+// ---------- Apply Theme ----------
+function applyTheme(theme) {
+  body.className = ""; // remove previous theme
+  if (theme !== "light") {
+    body.classList.add(theme);
+  }
+}
+
+// ---------- Apply Button ----------
+document.getElementById("applyBtn").addEventListener("click", () => {
+  const selectedTheme = themeSelect.value;
+  applyTheme(selectedTheme);
+  info.innerHTML = `🎨 Applied <b>${selectedTheme.toUpperCase()}</b> theme.`;
+});
+
+// ---------- Save Preferences ----------
+document.getElementById("saveBtn").addEventListener("click", () => {
+  const selectedTheme = themeSelect.value;
+  localStorage.setItem("theme", selectedTheme);
+  info.innerHTML = `✅ Saved your preference: <b>${selectedTheme.toUpperCase()}</b> theme.`;
+});
+
+// ---------- Reset Preferences ----------
+document.getElementById("resetBtn").addEventListener("click", () => {
+  localStorage.clear();
+  sessionStorage.clear();
+  applyTheme("light");
+  themeSelect.value = "light";
+  info.innerHTML = "♻️ Preferences reset. Back to default Light mode.";
+});
+</script>
+
+</body>
+</html>

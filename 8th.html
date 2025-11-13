@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronFit Gym</title>
+<style>
+/* ------------------ Global Styles ------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f4f9f9;
+  color: #222;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+header {
+  background: linear-gradient(120deg, #2c3e50, #4ca1af);
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+header h1 {
+  font-size: 2rem;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 10px;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+nav a:hover {
+  color: #d4fc79;
+}
+
+/* ------------------ Hero Section ------------------ */
+.hero {
+  background: url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=1200&q=80') center/cover;
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+.hero-content {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 30px;
+  border-radius: 15px;
+}
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+.hero p {
+  font-size: 1.1rem;
+}
+
+/* ------------------ Membership Section ------------------ */
+#membership {
+  padding: 50px 20px;
+  text-align: center;
+  background: #ffffff;
+}
+#membership h2 {
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+.plans {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.plan {
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  width: 280px;
+  padding: 25px;
+  transition: 0.3s;
+}
+.plan:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+.plan h3 {
+  color: #27ae60;
+}
+.plan p {
+  margin: 10px 0;
+}
+
+/* ------------------ Admission Form ------------------ */
+#admission {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #d4fc79, #96e6a1);
+}
+.form-container {
+  background: white;
+  padding: 35px;
+  max-width: 450px;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+.form-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+}
+label {
+  font-weight: 600;
+  display: block;
+  margin-top: 10px;
+}
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: #27ae60;
+  box-shadow: 0 0 8px rgba(39, 174, 96, 0.4);
+}
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: #1f8a4c;
+}
+.error {
+  color: #e74c3c;
+  font-size: 13px;
+}
+.success {
+  color: #27ae60;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+/* ------------------ Trainers ------------------ */
+#trainers {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+}
+.trainer-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.trainer {
+  width: 250px;
+  background: #f8f8f8;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: 0.3s;
+}
+.trainer:hover {
+  transform: translateY(-5px);
+}
+.trainer img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+/* ------------------ Footer ------------------ */
+footer {
+  background: #2c3e50;
+  color: #eee;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+}
+footer a {
+  color: #96e6a1;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>IronFit Gym</h1>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#membership">Membership</a></li>
+      <li><a href="#admission">Admission</a></li>
+      <li><a href="#trainers">Trainers</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ------------------ Hero Section ------------------ -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h2>Transform Your Body. Transform Your Life.</h2>
+    <p>Join IronFit Gym today and begin your fitness journey with experts and modern equipment.</p>
+  </div>
+</section>
+
+<!-- ------------------ Membership Plans ------------------ -->
+<section id="membership">
+  <h2>💪 Membership Plans</h2>
+  <div class="plans">
+    <div class="plan">
+      <h3>Monthly Plan</h3>
+      <p>₹999 / month</p>
+      <p>Access to all gym facilities</p>
+    </div>
+    <div class="plan">
+      <h3>Quarterly Plan</h3>
+      <p>₹2499 / 3 months</p>
+      <p>Includes one personal trainer session</p>
+    </div>
+    <div class="plan">
+      <h3>Yearly Plan</h3>
+      <p>₹8999 / year</p>
+      <p>Full access + Free nutrition guide</p>
+    </div>
+  </div>
+</section>
+
+<!-- ------------------ Admission Form ------------------ -->
+<section id="admission">
+  <div class="form-container">
+    <h2>🏋️ Gym Admission Form</h2>
+    <form id="gymForm" onsubmit="return validateForm()">
+      <label>Full Name:</label>
+      <input type="text" id="name" onblur="validateName()" placeholder="Enter your full name">
+      <div id="nameError" class="error"></div>
+
+      <label>Email:</label>
+      <input type="email" id="email" onblur="validateEmail()" placeholder="Enter your email">
+      <div id="emailError" class="error"></div>
+
+      <label>Age:</label>
+      <input type="number" id="age" onchange="validateAge()" placeholder="Enter your age">
+      <div id="ageError" class="error"></div>
+
+      <label>Membership Type:</label>
+      <select id="membershipSelect" onchange="showSelection()">
+        <option value="">Select Type</option>
+        <option>Monthly</option>
+        <option>Quarterly</option>
+        <option>Yearly</option>
+      </select>
+      <div id="membershipMsg" class="error"></div>
+
+      <button type="submit">Join Now</button>
+    </form>
+    <div id="successMsg" class="success"></div>
+  </div>
+</section>
+
+<!-- ------------------ Trainers Section ------------------ -->
+<section id="trainers">
+  <h2>🏆 Meet Our Trainers</h2>
+  <div class="trainer-container">
+    <div class="trainer">
+      <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=600&q=60" alt="Trainer 1">
+      <h4>Rohit Sharma</h4>
+      <p>Certified Strength Coach</p>
+    </div>
+    <div class="trainer">
+      <img src="https://images.unsplash.com/photo-1571019613578-2b193a9d2c57?auto=format&fit=crop&w=600&q=60" alt="Trainer 2">
+      <h4>Anjali Verma</h4>
+      <p>Yoga & Flexibility Expert</p>
+    </div>
+    <div class="trainer">
+      <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=600&q=60" alt="Trainer 3">
+      <h4>Akash Mehta</h4>
+      <p>Personal Fitness Trainer</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 IronFit Gym | Designed for Practical Demonstration</p>
+  <p>Contact: <a href="mailto:info@ironfitgym.com">info@ironfitgym.com</a></p>
+</footer>
+
+<script>
+function validateName() {
+  const name = document.getElementById("name").value.trim();
+  const nameError = document.getElementById("nameError");
+  const pattern = /^[A-Za-z ]{3,}$/;
+  if (name === "") {
+    nameError.textContent = "Name cannot be empty.";
+    return false;
+  } else if (!pattern.test(name)) {
+    nameError.textContent = "Only letters (min 3 characters).";
+    return false;
+  } else {
+    nameError.textContent = "";
+    return true;
+  }
+}
+function validateEmail() {
+  const email = document.getElementById("email").value.trim();
+  const emailError = document.getElementById("emailError");
+  const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (email === "") {
+    emailError.textContent = "Email is required.";
+    return false;
+  } else if (!pattern.test(email)) {
+    emailError.textContent = "Invalid email format.";
+    return false;
+  } else {
+    emailError.textContent = "";
+    return true;
+  }
+}
+function validateAge() {
+  const age = document.getElementById("age").value;
+  const ageError = document.getElementById("ageError");
+  if (age === "") {
+    ageError.textContent = "Age is required.";
+    return false;
+  } else if (age < 14 || age > 65) {
+    ageError.textContent = "Age must be between 14–65.";
+    return false;
+  } else {
+    ageError.textContent = "";
+    return true;
+  }
+}
+function showSelection() {
+  const select = document.getElementById("membershipSelect");
+  const msg = document.getElementById("membershipMsg");
+  if (select.value === "") {
+    msg.textContent = "Please select a plan.";
+  } else {
+    msg.textContent = "";
+  }
+}
+function validateForm() {
+  const validName = validateName();
+  const validEmail = validateEmail();
+  const validAge = validateAge();
+  const select = document.getElementById("membershipSelect").value;
+  if (!validName || !validEmail || !validAge || select === "") {
+    document.getElementById("successMsg").textContent = "";
+    if (select === "") document.getElementById("membershipMsg").textContent = "Please select a plan.";
+    return false;
+  }
+  document.getElementById("successMsg").textContent =
+    "✅ Registration successful! Welcome to IronFit Gym!";
+  document.getElementById("gymForm").reset();
+  return false;
+}
+</script>
+</body>
+</html>
