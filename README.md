@@ -7,7 +7,8 @@
 3rd practical 
 <img width="1881" height="877" alt="Screenshot 2025-11-14 013244" src="https://github.com/user-attachments/assets/b08ba9cc-8c79-4de1-897b-4b5f6b96654d" />
 4th practical
-<img width="1881" height="877" alt="Screenshot 2025-11-14 013244" src="https://github.com/user-attachments/assets/f4c27320-02df-464c-8d61-daeb40e2b01b" />
+<img width="912" height="631" alt="Screenshot 2025-11-14 013318" src="https://github.com/user-attachments/assets/591390f2-3805-4e15-bd95-8b07818bf265" />
+
 5th <img width="705" height="552" alt="Screenshot 2025-11-14 013347" src="https://github.com/user-attachments/assets/8e1cc5aa-d7e3-449e-8dfb-44ea9089ff66" />
 
 6th <img width="705" height="552" alt="Screenshot 2025-11-14 013347" src="https://github.com/user-attachments/assets/1e409e50-51f1-4d5e-a7e7-a47097f24703" />
