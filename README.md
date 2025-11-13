@@ -9,8 +9,11 @@
 4th practical
 <img width="912" height="631" alt="Screenshot 2025-11-14 013318" src="https://github.com/user-attachments/assets/591390f2-3805-4e15-bd95-8b07818bf265" />
 
+
 5th 
 <img width="705" height="552" alt="Screenshot 2025-11-14 013347" src="https://github.com/user-attachments/assets/8e1cc5aa-d7e3-449e-8dfb-44ea9089ff66" />
+
+
 
 6th 
 <img width="1203" height="882" alt="Screenshot 2025-11-11 131910" src="https://github.com/user-attachments/assets/3f551ab3-d555-42cb-8032-46af45b57a1a" />
@@ -18,13 +21,25 @@
 
 7th
 <img width="735" height="821" alt="Screenshot 2025-11-11 131749" src="https://github.com/user-attachments/assets/aff443f4-61c5-4c60-bf0c-a08571f37637" />
+
+
 8th
+
+
 <img width="1867" height="881" alt="Screenshot 2025-11-11 131536" src="https://github.com/user-attachments/assets/21f1803b-6a39-4a02-97e8-af4b049c23a3" />
 <img width="1887" height="832" alt="Screenshot 2025-11-11 131504" src="https://github.com/user-attachments/assets/90cbb778-12e2-4c18-a6c1-3d141bfb8eeb" />
+
+
 9th 
+
+
 <img width="1887" height="832" alt="Screenshot 2025-11-11 131504" src="https://github.com/user-attachments/assets/e22f8598-a029-4d42-b4f9-052fefec49a3" />
+
+
 10th 
 <img width="1875" height="860" alt="Screenshot 2025-11-11 131216" src="https://github.com/user-attachments/assets/7f948a0a-f446-476f-a0d3-cf09e0582254" />
 
 11th 
+
+
 <img width="1433" height="755" alt="Screenshot 2025-11-11 130931" src="https://github.com/user-attachments/assets/4e9ef562-ff58-4810-a98d-766cbe3fcd31" />
