@@ -1,7 +1,8 @@
 1st practical 
 <img width="1893" height="877" alt="Screenshot 2025-11-14 013049" src="https://github.com/user-attachments/assets/e802f9e0-3549-460f-acf3-a62289ee1e24" />
 2nd practical <img width="1898" height="875" alt="Screenshot 2025-11-14 013116" src="https://github.com/user-attachments/assets/cc401549-de3f-442a-8c16-e440b61b4732" />
-<img width="1898" height="875" alt="Screenshot 2025-11-14 013116" src="https://github.com/user-attachments/assets/818dbc58-d5f6-4c74-8a44-e96e7789d3de" />
+<img width="1896" height="877" alt="Screenshot 2025-11-14 013138" src="https://github.com/user-attachments/assets/668443bc-658c-46fd-80bf-bd7cc4d11809" />
+
 
 3rd practical 
 <img width="1881" height="877" alt="Screenshot 2025-11-14 013244" src="https://github.com/user-attachments/assets/b08ba9cc-8c79-4de1-897b-4b5f6b96654d" />
