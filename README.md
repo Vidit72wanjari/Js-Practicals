@@ -14,7 +14,8 @@
 6th <img width="705" height="552" alt="Screenshot 2025-11-14 013347" src="https://github.com/user-attachments/assets/1e409e50-51f1-4d5e-a7e7-a47097f24703" />
 
 
-7th <img width="735" height="821" alt="Screenshot 2025-11-11 131749" src="https://github.com/user-attachments/assets/3ed62a0c-4d61-4183-bb7d-911a99762d59" />
+7th <img width="1203" height="882" alt="Screenshot 2025-11-11 131910" src="https://github.com/user-attachments/assets/3f551ab3-d555-42cb-8032-46af45b57a1a" />
+
 
 8th <img width="735" height="821" alt="Screenshot 2025-11-11 131749" src="https://github.com/user-attachments/assets/b497bce5-b918-4607-b85b-39bd07e3d7e4" /> <img width="1887" height="832" alt="Screenshot 2025-11-11 131504" src="https://github.com/user-attachments/assets/bf7b4cdf-c98b-445a-a2bd-07b183706125" />
 
